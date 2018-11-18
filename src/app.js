@@ -29,6 +29,7 @@
 
 import React from "react";
 import PropTypes from "prop-types";
+import {NewComponent} from './newComponent.js';
 
 export class App extends React.Component {
     constructor(props)
@@ -37,7 +38,7 @@ export class App extends React.Component {
         this.state = {
             ahmet: 3,
             tolga: 2,
-            counter: 0
+            counter: 0 
         }
         console.log("consturctor called");
     }
@@ -49,9 +50,9 @@ export class App extends React.Component {
         console.log("componentDidMount called");
     }
     render(){
-        console.log("render called");
+        console.log("render app called");
         return <div style={{ padding: '50px', width: '100%'}}>
-            {this.props.children}
+            <div>{this.props.children}</div>
             <button onClick={
                 (event)=>{
                     this.setState({
@@ -60,6 +61,9 @@ export class App extends React.Component {
                  
                 }
             }>update</button>
+            <div>
+                <NewComponent count={this.state.counter}></NewComponent>
+            </div>
         </div>
     }
 }
