@@ -28,12 +28,38 @@
 // }
 
 import React from "react";
-import PropTypes from "prop-types"
+import PropTypes from "prop-types";
+
 export class App extends React.Component {
+    constructor(props)
+    {
+        super(props);
+        this.state = {
+            ahmet: 3,
+            tolga: 2,
+            counter: 0
+        }
+        console.log("consturctor called");
+    }
+    componentWillMount(){
+        console.log("componentWillMount called");
+    }
+    componentDidMount()
+    {
+        console.log("componentDidMount called");
+    }
     render(){
-        
+        console.log("render called");
         return <div style={{ padding: '50px', width: '100%'}}>
             {this.props.children}
+            <button onClick={
+                (event)=>{
+                    this.setState({
+                        counter: this.state.counter +1
+                    })
+                 
+                }
+            }>update</button>
         </div>
     }
 }
