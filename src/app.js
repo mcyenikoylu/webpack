@@ -49,6 +49,15 @@ export class App extends React.Component {
     {
         console.log("componentDidMount called");
     }
+    componentWillUpdate(nextProps,nextState)
+    {
+        console.log("componentWillUpdate called");
+    }
+    componentDidUpdate()
+    {
+        console.log("componentDidUpdate called");
+
+    }
     render(){
         console.log("render app called");
         return <div style={{ padding: '50px', width: '100%'}}>
@@ -62,7 +71,8 @@ export class App extends React.Component {
                 }
             }>update</button>
             <div>
-                <NewComponent count={this.state.counter}></NewComponent>
+                {/* <NewComponent count={this.state.counter}></NewComponent> */}
+                {(this.state.counter<5 ? <NewComponent count={this.state.counter}></NewComponent> : null)}
             </div>
         </div>
     }

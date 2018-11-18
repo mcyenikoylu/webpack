@@ -10,6 +10,11 @@ export class NewComponent extends React.Component {
     {
         return (this.props.count != nextProps.count && nextProps.count <5 );
     }
+    componentWillUnmount()
+    {
+        console.log("componentWillUnmount called: ");
+
+    }
     render(){
         console.log("render NewComponent called");
         return <h1>{this.props.count}</h1>
