@@ -30,6 +30,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {NewComponent} from './newComponent.js';
+import {Button} from 'react-bootstrap';
 
 export class App extends React.Component {
     constructor(props)
@@ -62,14 +63,14 @@ export class App extends React.Component {
         console.log("render app called");
         return <div style={{ padding: '50px', width: '100%'}}>
             <div>{this.props.children}</div>
-            <button onClick={
+            <Button onClick={
                 (event)=>{
                     this.setState({
                         counter: this.state.counter +1
                     })
                  
                 }
-            }>update</button>
+            }>update</Button>
             <div>
                 {/* <NewComponent count={this.state.counter}></NewComponent> */}
                 {(this.state.counter<5 ? <NewComponent count={this.state.counter}></NewComponent> : null)}
